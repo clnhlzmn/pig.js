@@ -785,12 +785,16 @@
             this.thumbnail.className += ' ' + this.classNames.loaded;
           }
         }.bind(this);
-
         this.getElement().appendChild(this.thumbnail);
       }
 
       // Show full image
       if (!this.fullImage) {
+        
+        this.fullImageLink = document.createElement('a');
+        this.fullImageLink.href = this.pig.settings.urlForSize(this.filename, 1024);
+        this.fullImageLink.target = "_blank";
+        
         this.fullImage = new Image();
         this.fullImage.src = this.pig.settings.urlForSize(this.filename, this.pig.settings.getImageSize(this.pig.lastWindowWidth));
         this.fullImage.onload = function() {
@@ -802,7 +806,9 @@
           }
         }.bind(this);
 
-        this.getElement().appendChild(this.fullImage);
+        this.fullImageLink.appendChild(this.fullImage)
+        
+        this.getElement().appendChild(this.fullImageLink);
       }
     }.bind(this), 100);
   };

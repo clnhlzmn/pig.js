@@ -1,1 +1,1 @@
-Forked from https://github.com/schlosser/pig.js. Extending with images as links to full size.
+Forked from https://github.com/schlosser/pig.js. Extended with images as links to full size (1024 pixels).
